@@ -101,7 +101,7 @@ public class ExamenBackendApplication  implements CommandLineRunner{
                 Remboursement remboursement2 = new Remboursement();
                 remboursement2.setDate(LocalDate.now());
                 remboursement2.setMontant(50000.0);
-                remboursement2.setType(SecurityConfig.TypeRemboursement.ANTICIPE);
+                remboursement2.setType(sara.damri.examenbackend.Secirity.SecurityConfig.TypeRemboursement.ANTICIPE);
                 remboursement2.setCredit(creditImmobilier);
 
                 remboursementRepository.saveAll(List.of(remboursement1, remboursement2));
