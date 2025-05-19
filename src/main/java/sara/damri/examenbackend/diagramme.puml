@@ -1,0 +1,44 @@
+classDiagram
+    class Client {
+        +id: Long
+        +nom: String
+        +email: String
+    }
+
+    class Credit {
+        <<abstract>>
+        +id: Long
+        +dateDemande: Date
+        +statut: EnumStatut
+        +dateAcceptation: Date
+        +montant: Double
+        +dureeMois: Integer
+        +tauxInteret: Double
+    }
+
+    class CreditPersonnel {
+        +motif: String
+    }
+
+    class CreditImmobilier {
+        +typeBien: EnumTypeBien
+    }
+
+    class CreditProfessionnel {
+        +motif: String
+        +raisonSociale: String
+    }
+
+    class Remboursement {
+        +id: Long
+        +date: Date
+        +montant: Double
+        +type: EnumTypeRemboursement
+    }
+
+    Client "1" -- "*" Credit : possède
+    Credit "1" -- "*" Remboursement : a
+    
+    Credit <|-- CreditPersonnel
+    Credit <|-- CreditImmobilier
+    Credit <|-- CreditProfessionnel
