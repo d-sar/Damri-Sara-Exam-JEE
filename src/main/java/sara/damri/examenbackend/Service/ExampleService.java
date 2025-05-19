@@ -5,14 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sara.damri.examenbackend.DTOs.ExampleDTO;
-import sara.damri.examenbackend.Entities.Example;
+import sara.damri.examenbackend.DTOs.ClientDTO;
+import sara.damri.examenbackend.Entities.Client;
 import sara.damri.examenbackend.Mappers.ExampleMapper;
-import sara.damri.examenbackend.Repositories.ExampleRepo;
+import sara.damri.examenbackend.Repositories.ClientRepository;
 
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,18 +18,18 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Slf4j
 public class ExampleService {
-    private ExampleRepo exampleRepo;
+    private ClientRepository exampleRepo;
     private ExampleMapper exampleMapper;
 
-    public ExampleDTO saveCustomer(ExampleDTO  exampleDTO) {
+    public ClientDTO saveCustomer(ClientDTO clientDTO) {
         log.info("Saving new Customer");
-        Example example=exampleMapper.fromExampleDTO(exampleDTO);
-        Example saveExample =exampleRepo.save(example);
-        return exampleMapper.fromExample(saveExample);
+        Client client =exampleMapper.fromExampleDTO(clientDTO);
+        Client saveClient =exampleRepo.save(client);
+        return exampleMapper.fromExample(saveClient);
     }
-    public List<ExampleDTO> listExample() {
-        List<Example> customers = exampleRepo.findAll();
-        List<ExampleDTO> customerDTOS = customers.stream()
+    public List<ClientDTO> listExample() {
+        List<Client> customers = exampleRepo.findAll();
+        List<ClientDTO> customerDTOS = customers.stream()
                 .map(customer -> exampleMapper.fromExample(customer))
                 .collect(Collectors.toList());
         return customerDTOS;

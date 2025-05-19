@@ -5,11 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.web.bind.annotation.*;
-import sara.damri.examenbackend.DTOs.ExampleDTO;
+import sara.damri.examenbackend.DTOs.ClientDTO;
 import sara.damri.examenbackend.Service.ExampleService;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 
 @RestController
 @AllArgsConstructor
@@ -20,13 +19,13 @@ public class EmployeeController {
     private ExampleService exampleService;
 
     @GetMapping
-    public List<ExampleDTO> getAllEmployees() {
+    public List<ClientDTO> getAllEmployees() {
         return exampleService.listExample();
     }
 
 
     @PostMapping
-    public ExampleDTO saveEmployee(@RequestBody ExampleDTO employeeDTO) {
+    public ClientDTO saveEmployee(@RequestBody ClientDTO employeeDTO) {
         return exampleService.saveCustomer(employeeDTO);
     }
 

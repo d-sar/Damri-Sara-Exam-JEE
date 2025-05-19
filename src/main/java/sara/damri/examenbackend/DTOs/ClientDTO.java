@@ -3,7 +3,8 @@ package sara.damri.examenbackend.DTOs;
 import lombok.Data;
 
 @Data
-public class ExampleDTO {
+public class ClientDTO {
     private Long id;
     private String name;
+    private String email;
 }
