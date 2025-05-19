@@ -1,11 +1,15 @@
 package sara.damri.examenbackend.DTOs;
 
-import java.time.LocalDate;
+import lombok.Data;
+import sara.damri.examenbackend.Secirity.SecurityConfig;
 
+import java.sql.Date;
+
+@Data
 public class RemboursementDTO {
     private Long id;
-    private LocalDate date;
+    private Date date;
     private Double montant;
-    private String type; //
-    private Long creditId;
+    private SecurityConfig.TypeRemboursement type;
+    private CreditDTO credit;
 }

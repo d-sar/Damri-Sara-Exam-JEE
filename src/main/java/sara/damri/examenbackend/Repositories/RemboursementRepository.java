@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
 import sara.damri.examenbackend.Entities.Remboursement;
-import sara.damri.examenbackend.Entities.TypeRemboursement;
+import sara.damri.examenbackend.Secirity.SecurityConfig;
 
 import java.util.List;
 
@@ -14,5 +14,5 @@ public interface RemboursementRepository extends JpaRepository<Remboursement,Lon
     List<Remboursement> findByCreditId(Long creditId);
 
     // Trouver les remboursements par type
-    List<Remboursement> findByType(TypeRemboursement type);
+    List<Remboursement> findByType(SecurityConfig.TypeRemboursement type);
 }

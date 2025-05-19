@@ -6,10 +6,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import sara.damri.examenbackend.DTOs.*;
 import sara.damri.examenbackend.Entities.*;
 
 import sara.damri.examenbackend.Repositories.*;
+import sara.damri.examenbackend.Secirity.SecurityConfig;
 ;
 
 import java.time.LocalDate;
@@ -95,13 +95,13 @@ public class ExamenBackendApplication  implements CommandLineRunner{
                 Remboursement remboursement1 = new Remboursement();
                 remboursement1.setDate(LocalDate.now().plusMonths(1));
                 remboursement1.setMontant(10000.0);
-                remboursement1.setType(TypeRemboursement.MENSUALITE);
+                remboursement1.setType(SecurityConfig.TypeRemboursement.MENSUALITE);
                 remboursement1.setCredit(creditPersonnel);
 
                 Remboursement remboursement2 = new Remboursement();
                 remboursement2.setDate(LocalDate.now());
                 remboursement2.setMontant(50000.0);
-                remboursement2.setType(TypeRemboursement.ANTICIPE);
+                remboursement2.setType(SecurityConfig.TypeRemboursement.ANTICIPE);
                 remboursement2.setCredit(creditImmobilier);
 
                 remboursementRepository.saveAll(List.of(remboursement1, remboursement2));

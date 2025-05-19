@@ -23,32 +23,51 @@ public class CreditMapperImpl {
     }
 
     public CreditPrsoneelDTO fromCreditPersonnel(CreditPersonnel creditPersonnel){
-        CreditPrsoneelDTO creditPersonnelDTO=new CreditPrsoneelDTO();
+        CreditPrsoneelDTO  creditPersonnelDTO=new CreditPrsoneelDTO ();
         BeanUtils.copyProperties(creditPersonnel,creditPersonnelDTO);
-
+        creditPersonnelDTO.setClient(fromClient(creditPersonnel.getClient()));
+        creditPersonnelDTO.setType(creditPersonnel.getClass().getSimpleName());
         return creditPersonnelDTO;
     }
 
     public CreditPersonnel fromCreditPersonnnelDTO(CreditPrsoneelDTO creditPersonnelDTO){
         CreditPersonnel creditPersonnel=new CreditPersonnel();
         BeanUtils.copyProperties(creditPersonnelDTO,creditPersonnel);
-
+        creditPersonnel.setClient(fromClientDTO(creditPersonnelDTO.getClient()));
         return creditPersonnel;
     }
 
     public CreditImmobilier fromCreditImmobilierDTO(CreditImmobilierDTO creditImmobilierDTO){
         CreditImmobilier creditImmobilier=new CreditImmobilier();
         BeanUtils.copyProperties(creditImmobilierDTO,creditImmobilier);
-
+        creditImmobilier.setClient(fromClientDTO(creditImmobilierDTO.getClient()));
         return creditImmobilier;
     }
 
     public CreditImmobilierDTO fromCreditImmobilier(CreditImmobilier creditImmobilier){
         CreditImmobilierDTO creditImmobilierDTO=new CreditImmobilierDTO();
         BeanUtils.copyProperties(creditImmobilier,creditImmobilierDTO);
-
+        creditImmobilierDTO.setClient(fromClient(creditImmobilier.getClient()));
+        creditImmobilierDTO.setType(creditImmobilier.getClass().getSimpleName());
         return creditImmobilierDTO;
     }
+
+    public CreditProfessionnel fromCreditProfessionnelDTO(CreditProfessionnelDTO creditProfessionelDTO){
+        CreditProfessionnel creditProfessionel=new CreditProfessionnel();
+        BeanUtils.copyProperties(creditProfessionelDTO,creditProfessionel);
+        creditProfessionel.setClient(fromClientDTO(creditProfessionelDTO.getClient()));
+        return creditProfessionel;
+    }
+
+    public CreditProfessionnelDTO fromCreditProfessionel(CreditProfessionnel creditProfessionel){
+        CreditProfessionnelDTO creditProfessionelDTO=new CreditProfessionnelDTO();
+        BeanUtils.copyProperties(creditProfessionel,creditProfessionelDTO);
+        creditProfessionelDTO.setClient(fromClient(creditProfessionel.getClient()));
+        creditProfessionelDTO.setType(creditProfessionel.getClass().getSimpleName());
+        return creditProfessionelDTO;
+    }
+
+
 
     public RemboursementDTO fromRemboursement(Remboursement remboursement){
         RemboursementDTO remboursementDTO=new RemboursementDTO();
@@ -59,6 +78,5 @@ public class CreditMapperImpl {
         Remboursement remboursement = new Remboursement();
         BeanUtils.copyProperties(remboursementDTO, remboursement);
         return remboursement;
-}
-
+    }
 }

@@ -6,6 +6,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sara.damri.examenbackend.Secirity.SecurityConfig;
 
 import java.time.LocalDate;
 
@@ -24,7 +25,7 @@ public class Remboursement {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private TypeRemboursement type;
+    private SecurityConfig.TypeRemboursement type;
 
     @ManyToOne
     @JoinColumn(name = "CREDIT_ID", nullable = false)

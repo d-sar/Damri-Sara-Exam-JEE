@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.web.bind.annotation.*;
 import sara.damri.examenbackend.DTOs.ClientDTO;
-import sara.damri.examenbackend.Service.ExampleService;
+import sara.damri.examenbackend.Service.ClientService;
 
 import java.util.List;
 
@@ -14,31 +14,23 @@ import java.util.List;
 @AllArgsConstructor
 @Slf4j
 @CrossOrigin("*")
-@RequestMapping("/api/example")
+@RequestMapping("/api/client")
 public class EmployeeController {
-    private ExampleService exampleService;
+    private ClientService clientService;
 
     @GetMapping
-    public List<ClientDTO> getAllEmployees() {
-        return exampleService.listExample();
+    public List<ClientDTO> getAllClient() {
+        return clientService.getAllClients();
     }
 
 
     @PostMapping
-    public ClientDTO saveEmployee(@RequestBody ClientDTO employeeDTO) {
-        return exampleService.saveCustomer(employeeDTO);
+    public ClientDTO saveClient(@RequestBody ClientDTO employeeDTO) {
+        return clientService.createClient(employeeDTO);
     }
 
 
 
-
-// les rpo
-    //private  EmployeeRepository employeeRepository;
-//    @GetMapping
-//    public ResponseEntity<List<Employee>> getAllEmployees() {
-//        List<Employee> employees = executorService.findAll();
-//        return ResponseEntity.ok(employees);
-//    }
 
 
 
