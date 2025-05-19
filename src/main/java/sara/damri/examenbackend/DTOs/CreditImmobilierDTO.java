@@ -3,6 +3,6 @@ package sara.damri.examenbackend.DTOs;
 import lombok.Data;
 
 @Data
-public class CreditImmobilierDTO {
+public class CreditImmobilierDTO extends CreditDTO {
     private String typeBien;
 }

@@ -2,8 +2,7 @@ package sara.damri.examenbackend.DTOs;
 
 import java.time.LocalDate;
 
-public class CreditDTO
-{
+public class CreditDTO {
     private Long id;
     private LocalDate dateDemande;
     private String statut;
